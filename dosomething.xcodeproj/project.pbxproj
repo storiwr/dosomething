@@ -20,6 +20,7 @@
 		DCD8617825991D9F009AA4AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCD8617B25991D9F009AA4AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DCD8617D25991D9F009AA4AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCD8618425991E17009AA4AE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = dosomething/README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +37,7 @@
 		DCD8616825991D9C009AA4AE = {
 			isa = PBXGroup;
 			children = (
+				DCD8618425991E17009AA4AE /* README.md */,
 				DCD8617325991D9D009AA4AE /* dosomething */,
 				DCD8617225991D9D009AA4AE /* Products */,
 			);
