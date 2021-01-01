@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var tasks = Task()
     @State private var inToday = true
     @State private var complete = true
     
     var body: some View {
-        List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+        List { ForEach(tasks.items) { task in
+            TaskCell(task: task)
+        }
+            
             if complete == true {
                 Image(systemName: "checkmark.circle")
             } else {
