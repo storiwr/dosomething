@@ -19,10 +19,12 @@ struct NewTaskView: View {
         NavigationView {
             Form {
                 TextField("Title", text: $name)
-//                TextField("Body", text: $isComplete)
+                Toggle(isOn: $isToday) {
+                    Text("Add to Today")
+                }
 
                 }
-                .navigationBarTitle("New Card")
+                .navigationBarTitle("New Task")
                 .navigationBarItems(trailing: Button("Done") {
 
                     let item = TaskParts(name: self.name, isComplete: self.isComplete, isToday: self.isToday)

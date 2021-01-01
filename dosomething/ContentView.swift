@@ -9,9 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var tasks = Task()
-    @State private var inToday = true
-    @State private var complete = true
     @State private var showingNewTaskView = false
+    @State private var showingTodayOnly = false
     
     var body: some View {
         NavigationView {
@@ -20,14 +19,22 @@ struct ContentView: View {
             }
             
             }.padding()
-            .navigationBarTitle("Cards")
-            .navigationBarItems(trailing:
-                Button(action: {
+            .navigationBarTitle("Tasks")
+            
+            
+            .navigationBarItems(leading:
+                    Button(action: {
+                        self.showingTodayOnly = true
+                    }) {
+                        Image(systemName: "sunrise.fill")
+                    },
+                    trailing:
+                    Button(action: {
                     self.showingNewTaskView = true
-                }) {
+                    }) {
                     Image(systemName: "plus")
-                }
-            )
+                    }
+                )
             .sheet(isPresented: $showingNewTaskView) {
                 NewTaskView(tasks: self.tasks)
             }
