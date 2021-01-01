@@ -11,27 +11,27 @@ struct ContentView: View {
     @ObservedObject var tasks = Task()
     @State private var inToday = true
     @State private var complete = true
+    @State private var showingNewTaskView = false
     
     var body: some View {
-        List { ForEach(tasks.items) { task in
-            TaskCell(task: task)
-        }
+        NavigationView {
+            List { ForEach(tasks.items) { task in
+                TaskCell(task: task)
+            }
             
-            if complete == true {
-                Image(systemName: "checkmark.circle")
-            } else {
-                Image(systemName: "circle")
+            }.padding()
+            .navigationBarTitle("Cards")
+            .navigationBarItems(trailing:
+                Button(action: {
+                    self.showingNewTaskView = true
+                }) {
+                    Image(systemName: "plus")
+                }
+            )
+            .sheet(isPresented: $showingNewTaskView) {
+                NewTaskView(tasks: self.tasks)
             }
-            Text("Hello, world!")
-                .multilineTextAlignment(.leading)
-                .padding()
-            Spacer()
-            if inToday == true {
-                Image(systemName: "sun.max.fill")
-            } else {
-                Image(systemName: "sun.max")
-            }
-        }.padding()
+        }
     }
 }
 
