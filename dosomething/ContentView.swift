@@ -17,17 +17,14 @@ struct ContentView: View {
             List { ForEach(tasks.items) { task in
                 TaskCell(task: task)
             }
-            
             }.padding()
             .navigationBarTitle("Tasks")
             
             
             .navigationBarItems(leading:
-                    Button(action: {
-                        self.showingTodayOnly = true
-                    }) {
-                        Image(systemName: "sunrise.fill")
-                    },
+                                    NavigationLink(destination: TodayView() ) {
+                                       Image(systemName: "sunrise")
+                   },
                     trailing:
                     Button(action: {
                     self.showingNewTaskView = true

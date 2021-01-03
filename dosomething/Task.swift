@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class Task: ObservableObject {
     @Published var items: [TaskParts] {

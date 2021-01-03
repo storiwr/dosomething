@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Combine
 
-struct TaskParts: Codable, Identifiable {
+struct TaskParts: Hashable, Codable, Identifiable {
     var id = UUID()
     var name: String
     var isComplete: Bool
